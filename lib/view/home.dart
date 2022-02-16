@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
-
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:mvvm_image/view_model/list_picture_viewmodel.dart';
 import 'package:transparent_image/transparent_image.dart';
-
 class HomePgae extends StatefulWidget {
   const HomePgae({Key? key}) : super(key: key);
 
@@ -29,13 +27,13 @@ class _HomePgaeState extends State<HomePgae> {
             );
           } else {
             return StaggeredGridView.countBuilder(
-              crossAxisCount: 2,
-              iteamBuilder: (BuildContext context, int index) => Container(
+              crossAxisCount: 4,
+              itemBuilder: (BuildContext context, int index) => Container(
                 color: Colors.green,
                 child: FadeInImage.memoryNetwork(
                   placeholder: kTransparentImage,
                   image:
-                      '${listPictureViewModel.picture![index]!.picSumModel!.downloadUrl}',
+                  '${listPictureViewModel.picture![index].picSumModel!.downloadUrl}',
                   fit: BoxFit.cover,
                 ),
               ),
